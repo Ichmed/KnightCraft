@@ -31,8 +31,8 @@ public class ThaumicIndustries
 //		magicRailroad = (BlockMagicRailroad) new BlockMagicRailroad(200, false).setCreativeTab(CreativeTabs.tabTransport);
 
 		BiomeGenBase biome = new BiomeUndergroundForest(50);
-//		biome.setBiomeName("Underground Forest").setMinMaxHeight(-1, 2);
-//		GameRegistry.addBiome(biome);
+		biome.setBiomeName("Underground Forest").setMinMaxHeight(-1, 2);
+		GameRegistry.addBiome(biome);
 		BiomeDictionary.registerBiomeType(biome, BiomeDictionary.Type.FOREST);
 		
 //		GameRegistry.registerBlock(magicRailroad, "magicRailroad");

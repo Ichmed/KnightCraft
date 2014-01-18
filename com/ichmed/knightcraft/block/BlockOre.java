@@ -7,8 +7,12 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockOre extends Block
 {
@@ -21,10 +25,10 @@ public class BlockOre extends Block
 	{
 		super(i, Material.rock);
 		oreGroup = s;
-		if(s.equals("Precious")) names = new String[]{ "Gold" };
-		if(s.equals("Basic")) names = new String[]{ "Iron" };
-		if(s.equals("Utility")) names = new String[]{ "Coal" };
-		if(s.equals("Gem")) names = new String[]{ "Diamond" };
+		if (s.equals("Precious")) names = new String[] { "Gold", "Silver", "Mithril", "Orichalcum", "Adamantium" };
+		if (s.equals("Basic")) names = new String[] { "Iron", "Copper", "Tin" };
+		if (s.equals("Utility")) names = new String[] { "Coal", "Sulfur", "Salpeter", "Salt" };
+		if (s.equals("Gem")) names = new String[] { "Diamond" };
 	}
 
 	@Override
@@ -60,7 +64,27 @@ public class BlockOre extends Block
 	{
 		return oreGroup.toLowerCase();
 	}
-	
-	
+
+	@Override
+	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List list)
+	{
+		for (int i = 0; i < names.length; i++)
+			list.add(new ItemStack(this, 1, i));
+	}
+
+	@Override
+	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
+	{
+		ArrayList l = new ArrayList<ItemStack>();
+		l.add(new ItemStack(this, 1, metadata));
+		return l;
+	}
+
+	@Override
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
+	{
+		return new ItemStack(this, 1, world.getBlockMetadata(x, y, z));
+
+	}
 
 }
