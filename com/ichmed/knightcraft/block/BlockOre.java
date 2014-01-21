@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.ichmed.knightcraft.KnightCraft;
+import com.ichmed.knightcraft.item.ItemOre;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -76,7 +79,8 @@ public class BlockOre extends Block
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
 	{
 		ArrayList l = new ArrayList<ItemStack>();
-		l.add(new ItemStack(this, 1, metadata));
+		l.add(new ItemStack(KnightCraft.oreCluster, 1 + (int)(fortune * fortune * Math.random()), ItemOre.getDamageFromName(names[metadata])));
+		l.add(new ItemStack(Block.cobblestone));
 		return l;
 	}
 
