@@ -3,6 +3,7 @@ package com.ichmed.knightcraft;
 import java.lang.reflect.Field;
 
 import com.ichmed.knightcraft.block.BlockOre;
+import com.ichmed.knightcraft.item.ItemMeleeWeapon;
 import com.ichmed.knightcraft.item.ItemOre;
 
 import net.minecraft.block.Block;
@@ -21,6 +22,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class KnightCraft
 {
 	public static Item oreCluster, ingot;
+	public static Item meleeWeapon;
 
 	public static Block preciousOre;
 	public static Block basicOre;
@@ -33,6 +35,8 @@ public class KnightCraft
 		oreCluster = new ItemOre(5000, "oreCluster").setCreativeTab(CreativeTabs.tabMaterials);
 		
 		ingot = new ItemOre(5001, "ingot").setCreativeTab(CreativeTabs.tabMaterials);
+		
+		meleeWeapon = new ItemMeleeWeapon(5002).setCreativeTab(CreativeTabs.tabCombat);
 
 		Block.blocksList[14] = null;
 		preciousOre = new BlockOre(14, "Precious").setCreativeTab(CreativeTabs.tabBlock).setHardness(1.0f);
