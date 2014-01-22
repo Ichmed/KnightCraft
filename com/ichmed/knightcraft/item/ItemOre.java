@@ -48,8 +48,7 @@ public class ItemOre extends Item
 		icons = new Icon[names.length];
 		for (int i = 0; i < names.length; i++)
 		{
-//			icons[i] = iconRegister.registerIcon("knightcraft:" + type + names[i]);
-			icons[i] = iconRegister.registerIcon("knightcraft:swordOrichalcum");
+			icons[i] = iconRegister.registerIcon("knightcraft:" + type + names[i]);
 		}
 	}
 
