@@ -8,12 +8,21 @@ public class WeaponRegistry
 	
 	static
 	{
-		weapons.put("LegendaryDawnSlayer", new Weapon());
+		weapons.put("LegendaryDawnSlayer", new Weapon(ElementalDammageType.PHYSICAL, 5, ElementalDammageType.DARK, 10));
+		weapons.put("SwordOrichalcum", new Weapon());
 	}
 	
 	public static class Weapon
 	{
-		HashMap<String, Integer> damage = new HashMap<String, Integer>();
+		public HashMap<ElementalDammageType, Integer> damage = new HashMap<ElementalDammageType, Integer>();
+		
+		public Weapon(Object... o)
+		{
+			for(int i = 0; i < o.length; i++)
+			{
+				damage.put((ElementalDammageType)o[i], (Integer)o[++i]);
+			}
+		}
 	}
 
 }

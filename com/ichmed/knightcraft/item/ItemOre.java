@@ -62,7 +62,6 @@ public class ItemOre extends Item
 	{
 		for (int i = 0; i < names.length; i++)
 		{
-			System.out.println(type + "  " + i);
 			list.add(new ItemStack(this, 1, i));
 		}
 	}
